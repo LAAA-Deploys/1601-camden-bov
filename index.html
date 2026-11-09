@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>1601 Camden Ave | Development Site BOV | LAAA Team</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,Helvetica,sans-serif;background:#f4f5f7;color:#1a1a1a;font-size:15px;line-height:1.6}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+header{background:linear-gradient(135deg,#0a2540,#143b6b);color:#fff;border-bottom:4px solid #b8985a;padding:44px 0 36px}
+.eyebrow{text-transform:uppercase;letter-spacing:2.5px;font-size:12px;color:#b8985a;font-weight:700;margin-bottom:10px}
+header h1{font-size:34px;font-weight:700;line-height:1.15;margin-bottom:8px}
+header .subtitle{font-size:16px;color:#cbd5e1;margin-bottom:18px}
+header .meta{font-size:13px;color:#9fb3cd;display:flex;flex-wrap:wrap;gap:6px 22px}
+nav.toc{background:#0a2540;border-bottom:1px solid #1a365a;position:sticky;top:0;z-index:50;box-shadow:0 2px 4px rgba(0,0,0,0.15)}
+nav.toc .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:0;padding:0 24px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+nav.toc a{color:#cbd5e1;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:0.6px;text-transform:uppercase;padding:14px 16px;border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;white-space:nowrap}
+nav.toc a:hover{color:#b8985a;border-bottom-color:#b8985a}
+nav.toc a.first{padding-left:0}
+@media (max-width:760px){nav.toc a{font-size:11px;padding:12px 10px;letter-spacing:0.4px}}
+section[id]{scroll-margin-top:60px}
+main{padding:28px 0 8px}
+section.card{background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(10,37,64,0.08);padding:28px 30px;margin-bottom:26px}
+section.card h2{color:#0a2540;font-size:22px;padding-bottom:10px;border-bottom:2px solid #b8985a;margin-bottom:18px}
+section.card h3{color:#0a2540;font-size:16px;margin:22px 0 10px}
+p{margin-bottom:12px}
+.stat-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:18px 0 6px}
+.stat{background:#f8fafc;border:1px solid #e6e9ef;border-left:3px solid #b8985a;border-radius:6px;padding:12px 14px}
+.stat .l{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#666;margin-bottom:4px}
+.stat .v{font-size:18px;font-weight:700;color:#0a2540;line-height:1.25}
+.stat .s{font-size:12px;color:#666;margin-top:2px}
+.hero-frame{border-radius:8px;overflow:hidden;margin:6px 0 16px;background:#0a2540;aspect-ratio:16/9}
+.hero-frame img{width:100%;height:100%;object-fit:contain;display:block}
+.img-frame{border-radius:8px;overflow:hidden;background:#0a2540}
+.img-frame img{width:100%;height:100%;object-fit:contain;display:block}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+.two-col .img-frame.sv{aspect-ratio:8/5}
+.caption{font-size:12px;color:#666;margin-top:6px}
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:16px 0}
+.spec{background:#f8fafc;border:1px solid #e6e9ef;border-radius:6px;padding:12px 16px;font-size:13.5px}
+.spec b{display:block;color:#0a2540;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:3px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0 6px}
+th{background:#0a2540;color:#fff;text-align:left;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid #e6e9ef;vertical-align:top}
+tr:nth-child(even) td{background:#f8fafc}
+td.num,th.num{text-align:right;white-space:nowrap}
+.psf{font-weight:700;color:#0a2540;white-space:nowrap}
+.psf.hot{color:#c0392b}
+tr.avg td{background:#eef2f7;font-weight:700;color:#0a2540;border-top:2px solid #0a2540}
+.table-scroll{overflow-x:auto}
+.b-closed{background:#e6f4ea;color:#1e7e34;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap}
+td.addr{white-space:nowrap}
+.b-laaa{display:inline-block;background:#b8985a;color:#fff;border-radius:10px;padding:1px 8px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;white-space:nowrap;margin-left:6px;vertical-align:1px}
+.fn{font-size:12px;color:#666;margin-top:8px}
+.path-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:18px 0 8px}
+.path-card{border:1px solid #e6e9ef;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;background:#fff}
+.path-card .ph{padding:16px 18px;color:#fff;min-height:128px;box-sizing:border-box}
+.path-card.pa .ph{background:linear-gradient(135deg,#0a2540,#143b6b)}
+.path-card.pb .ph{background:linear-gradient(135deg,#3a4a6b,#5a6f9a)}
+.path-card.pc .ph{background:linear-gradient(135deg,#5a4a1f,#8a6f2a)}
+.path-card.pd .ph{background:linear-gradient(135deg,#1f5e3a,#2f8a55)}
+.path-card.pe .ph{background:linear-gradient(135deg,#1f4e5e,#2f7a8a)}
+.path-card.pf .ph{background:linear-gradient(135deg,#4a2f5e,#6f4a8a)}
+.path-card.pg .ph{background:linear-gradient(135deg,#2d6a4f,#40916c)}
+.path-card.ph2 .ph{background:linear-gradient(135deg,#7a3b2e,#a0523d)}
+.path-card .ph .ptag{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;opacity:.88;margin-bottom:6px}
+.path-card .ph .pname{font-size:18px;font-weight:700;line-height:1.2}
+.path-card .ph .punits{font-size:13px;opacity:.92;margin-top:4px}
+.path-card .pb-body{padding:16px 20px;font-size:13.5px;flex:1}
+.path-card .pb-body ul{margin:0 0 0 18px}
+.path-card .pb-body li{margin-bottom:7px;line-height:1.55}
+.path-card .pmetric{display:flex;justify-content:space-between;padding:9px 20px;border-top:1px solid #e6e9ef;font-size:12.5px}
+.path-card .pmetric .l{color:#666}
+.path-card .pmetric .v{font-weight:700;color:#0a2540}
+.info-callout{background:#f8fafc;border:1px solid #e6e9ef;border-left:4px solid #b8985a;border-radius:6px;padding:14px 18px;font-size:13.5px;margin:14px 0}
+.info-callout a{color:#8a6f2a;font-weight:700}
+.tk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:16px 0}
+.tk{background:#f8fafc;border:1px solid #e6e9ef;border-left:4px solid #b8985a;border-radius:6px;padding:16px 18px;font-size:13.5px}
+.tk .n{display:inline-block;background:#0a2540;color:#fff;border-radius:50%;width:24px;height:24px;line-height:24px;text-align:center;font-size:12px;font-weight:700;margin-bottom:8px}
+.tk b{color:#0a2540}
+.recommend{background:linear-gradient(135deg,#8a6f2a,#b8985a);border-radius:8px;color:#fff;padding:26px 28px;margin:18px 0}
+.recommend .r-eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:700;opacity:.9;margin-bottom:6px}
+.recommend .r-band{font-size:30px;font-weight:800;line-height:1.2}
+.recommend .r-sub{font-size:14px;opacity:.95;margin-top:6px}
+.price-compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0 4px}
+.pc-box{background:#f8fafc;border:1px solid #e6e9ef;border-radius:6px;padding:14px 16px}
+.pc-box .l{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#666;margin-bottom:4px}
+.pc-box .v{font-size:19px;font-weight:700;color:#0a2540}
+.pc-box .s{font-size:12px;color:#666;margin-top:3px}
+.plat-strip{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.plat{background:#f8fafc;border:1px solid #e6e9ef;border-radius:20px;padding:7px 16px;font-size:13px;font-weight:600;color:#0a2540;white-space:nowrap}
+.inv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:16px 0}
+a.inv-item{display:flex;flex-direction:column;background:#f8fafc;border:1px solid #e6e9ef;border-left:4px solid #b8985a;border-radius:6px;padding:16px 18px;text-decoration:none;color:#1a1a1a;transition:box-shadow .15s}
+a.inv-item:hover{box-shadow:0 3px 10px rgba(10,37,64,.18)}
+.inv-item .addr{font-weight:700;color:#0a2540;font-size:15px}
+.inv-item .city{font-size:12.5px;color:#666;margin-bottom:6px}
+.inv-item .price{font-size:17px;font-weight:800;color:#0a2540}
+.inv-item .facts{font-size:12.5px;color:#666;margin:3px 0 8px}
+.inv-item .desc{font-size:13px;line-height:1.5;flex:1}
+.inv-item .go{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:#8a6f2a;text-transform:uppercase;letter-spacing:.8px}
+.team-leaders{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}
+.leader{background:#f8fafc;border:1px solid #e6e9ef;border-radius:8px;padding:22px;text-align:center}
+.headshot-img-lg{width:100px;height:100px;border-radius:50%;border:3px solid #b8985a;object-fit:cover;background:#0a2540;display:block;margin:0 auto 12px}
+.leader .nm{font-size:17px;font-weight:700;color:#0a2540}
+.leader .tt{font-size:13px;color:#666;margin:2px 0 8px}
+.leader .ct{font-size:13px;color:#1a1a1a}
+.team-roster{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.roster-card{background:#f8fafc;border:1px solid #e6e9ef;border-radius:8px;padding:14px 10px;text-align:center}
+.roster-card .headshot-img-lg{width:72px;height:72px;border-width:2px;margin-bottom:10px}
+.roster-card .nm{font-size:13.5px;font-weight:700;color:#0a2540;line-height:1.3}
+.roster-card .tt{font-size:11.5px;color:#666;margin-top:2px}
+footer{background:#0a2540;border-top:4px solid #b8985a;color:#9fb3cd;padding:30px 0;font-size:12.5px;margin-top:34px}
+footer .f-title{color:#fff;font-weight:700;font-size:14px;margin-bottom:6px}
+footer p{margin-bottom:10px;line-height:1.55}
+@media (max-width:760px){header h1{font-size:26px}.two-col{grid-template-columns:1fr}.team-leaders{grid-template-columns:1fr}section.card{padding:22px 18px}}
+@media (max-width:640px){header h1{font-size:22px}.recommend .r-band{font-size:24px}}
+.hl-banner{background:linear-gradient(135deg,#1f5e3a,#2f8a55);color:#fff;border-radius:8px;padding:18px 22px;margin:4px 0 18px;border-left:6px solid #b8985a}
+.hl-banner .t{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;opacity:.9;margin-bottom:4px}
+.hl-banner .h{font-size:20px;font-weight:800;line-height:1.3}
+.hl-banner .s{font-size:13.5px;opacity:.95;margin-top:6px}
+.hl-banner a{color:#fff;text-decoration:underline}
+.stat.green{border-left-color:#2f8a55;background:#eef7f1}
+header .badge{display:inline-block;background:#2f8a55;color:#fff;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:4px;padding:4px 10px;margin:0 6px 14px 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Broker Opinion of Value</div>
+    <h1>1601 Camden Avenue</h1>
+    <div><span class="badge">MIIP Transit Area 2</span><span class="badge">TCAC Highest Resource</span><span class="badge">Housing Element Site</span></div>
+    <div class="subtitle">7,411 SF [Q]R3-1-O corner development site with a 1948 duplex &middot; Westwood, Los Angeles, CA 90025</div>
+    <div class="meta">
+      <span>Prepared for: Earle Hyman</span>
+      <span>Prepared by: The LAAA Team &middot; Marcus &amp; Millichap</span>
+      <span>November 9, 2026</span>
+    </div>
+    <div class="hero-frame" style="margin:24px 0 0;border:1px solid rgba(184,152,90,.5)"><img src="images/hero_aerial.png" alt="Aerial view of 1601 Camden Ave with the lot outlined in gold"></div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a class="first" href="#summary">Summary</a>
+    <a href="#subject">Subject</a>
+    <a href="#location">Location</a>
+    <a href="#pathways">Pathways</a>
+    <a href="#sb1123">SB 684 / 1123</a>
+    <a href="#comps">Comps</a>
+    <a href="#takeaways">Takeaways</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#marketing">Marketing</a>
+    <a href="#listings">Listings</a>
+    <a href="#team">Team</a>
+  </div>
+</nav>
+
+<main>
+<div class="wrap">
+
+<section class="card" id="summary">
+  <h2>Executive Summary</h2>
+  <div class="hl-banner">
+    <div class="t">Same Zone, 0.46 Miles Away</div>
+    <div class="h">1723 S Corinth Ave, a [Q]R3 lot almost the size of this one, has a permit for a 42-unit building</div>
+    <div class="s">It sold in March 2025 for $2,500,000 ($339.72 per land SF) with 10 rent-stabilized apartments on it. The buyer pulled a demolition permit in December 2025 and a permit for a five-story, 42-unit, 100% affordable building in May 2026, on 7,359 SF.</div>
+  </div>
+  <p>1601 Camden Avenue is a <b>7,411 SF corner lot</b> in the <b>[Q]R3-1-O</b> zone in Westwood, just north of Santa Monica Boulevard and east of the 405. It is improved with a 1948 duplex of 3,164 SF, both units registered under the City's Rent Stabilization Ordinance (RSO).</p>
+  <p>The value is the land. The site is in a <b>Transit Oriented Incentive Area (Tier 2)</b> under the City's Mixed Income Incentive Program, within half a mile of a major transit stop, in a TCAC/HCD <b>Highest Resource</b> area, and it is one of the City's Lower Income Rezoning Housing Element sites, which allow ministerial approval for qualifying projects. The City's rezoning inventory assumes 19 units here. Five development pathways apply, from keeping the duplex and adding two ADUs to a 100% affordable building of about 40 units. A for-sale small-lot subdivision under SB 684 and SB 1123, which we modeled in full, is not available while the RSO duplex stands. Redevelopment sites nearby sold for a median of $265.52 per land SF from 2025 on. We recommend pricing the property at <b>$2,000,000</b> ($269.87 per land SF).</p>
+  <div class="stat-band">
+    <div class="stat"><div class="l">Lot</div><div class="v">7,411 SF</div><div class="s">0.17 acres, corner, about 57 x 130 ft</div></div>
+    <div class="stat"><div class="l">Zoning</div><div class="v">[Q]R3-1-O</div><div class="s">Medium Residential</div></div>
+    <div class="stat green"><div class="l">MIIP Transit Area</div><div class="v">Tier 2</div><div class="s">No parking required (AB 2097)</div></div>
+    <div class="stat"><div class="l">Housing Element</div><div class="v">19 units</div><div class="s">Assumed in the City's rezoning</div></div>
+    <div class="stat"><div class="l">100% Affordable</div><div class="v">~40 units</div><div class="s">1723 S Corinth model</div></div>
+    <div class="stat"><div class="l">Price</div><div class="v">$2,000,000</div><div class="s">$269.87 per land SF</div></div>
+  </div>
+</section>
+
+<section class="card" id="subject">
+  <h2>Subject Property</h2>
+  <div class="hero-frame"><img src="images/hero_aerial.png" alt="Aerial view of the lot outlined in gold"></div>
+  <div class="caption" style="margin-top:-8px;margin-bottom:12px">The lot outlined in gold: the duplex sits toward the Camden Avenue frontage at right, with the yard behind it. Streets border the lot on two sides.</div>
+  <div class="spec-grid">
+    <div class="spec"><b>Address</b>1601 and 1603 S Camden Ave, Los Angeles, CA 90025</div>
+    <div class="spec"><b>APN</b>4324-032-025 &middot; Tract 7514, Block 2, Lot 27</div>
+    <div class="spec"><b>Lot Size</b>7,411 SF (0.17 acres), about 57 ft x 130 ft, corner lot</div>
+    <div class="spec"><b>Zoning</b>[Q]R3-1-O &middot; General Plan: Medium Residential &middot; Westwood Community Plan</div>
+    <div class="spec"><b>Existing Improvements</b>Duplex, 3,164 SF, built 1948: 4 bedrooms and 4 baths in total. Both units registered under the RSO; the owner lives on the property (homeowner's exemption)</div>
+    <div class="spec"><b>Transit</b>MIIP Transit Oriented Incentive Area 2 (ZIMAS also lists the earlier TOC Tier 3) &middot; Transit Priority Area &middot; AB 2097 &middot; AB 2334 Very Low Vehicle Travel Area</div>
+    <div class="spec"><b>Housing Element</b>Housing Element site (ZI-2512) and Lower Income Rezoning site with ministerial approval and a minimum density of 20 units per acre (ZI-2534)</div>
+    <div class="spec"><b>Specific Plans</b>Westwood Community Multi-Family Specific Plan and Westwood Community Design Review Board; West LA Transportation Improvement and Mitigation Specific Plan</div>
+    <div class="spec"><b>Hazards</b>Alquist-Priolo Earthquake Fault Zone (Santa Monica Fault) &middot; Methane Zone &middot; Liquefaction area &middot; Special Grading Area &middot; Outside the flood zone and fire hazard zones</div>
+    <div class="spec"><b>Opportunity Area</b>TCAC/HCD Highest Resource (ZIMAS)</div>
+  </div>
+  <div class="img-frame" style="aspect-ratio:8/5;margin-top:14px"><img src="images/context_aerial.png" alt="Neighborhood aerial with the lot outlined"></div>
+  <div class="caption">The lot in its block: three- and four-story apartment buildings surround it on most sides.</div>
+</section>
+
+<section class="card" id="location">
+  <h2>Location</h2>
+  <p>The site sits in the apartment district of Westwood south of Wilshire Boulevard, a neighborhood of three- and four-story buildings between Westwood Village and Santa Monica Boulevard. Westwood Village is about 0.7 miles north and UCLA about 1.6 miles north. The Wilshire corridor at Westwood is about 0.65 miles away, Westfield Century City about 1.6 miles east, and the Expo Line's Westwood/Rancho Park station about 1.4 miles south.</p>
+  <div class="tk-grid">
+    <div class="tk"><span class="n">1</span><br><b>Walkable and well served.</b> Walk Score rates the block 88 ("Very Walkable"), with a Transit Score of 72 ("Excellent Transit") and a Bike Score of 80.</div>
+    <div class="tk"><span class="n">2</span><br><b>A renter's neighborhood with high rents.</b> About 76% of households in ZIP 90025 rent, and the median household income is about $104,000 (2024 American Community Survey). HUD's 2027 Small Area Fair Market Rents in 90025 are $3,550 for a one-bedroom and $4,380 for a two-bedroom, about 48% above the metro-wide figures.</div>
+    <div class="tk"><span class="n">3</span><br><b>Builders are already active nearby.</b> 0.15 miles away, 1521-1523 S Veteran Ave, an RSO duplex on the same zoning, sold in October 2024 with a 47-unit plan on file from 2022. At 1723 S Corinth, 0.46 miles away, a 42-unit affordable building has its permit.</div>
+  </div>
+  <div class="info-callout"><strong>Sources:</strong> ZIMAS Parcel Profile Report, November 9, 2026 &middot; Walk Score &middot; U.S. Census Bureau ACS 2020-2024 5-year, ZIP 90025 &middot; HUD 2027 Small Area FMRs &middot; LADBS permit records &middot; distances are straight-line from the lot.</div>
+</section>
+
+<section class="card" id="pathways">
+  <h2>Development Pathways</h2>
+  <p>R3 zoning, the City's transit incentives, the state density bonus and the site's Housing Element status give a buyer a ladder of options, from keeping the duplex to a 40-unit affordable building. Unit counts are planning-level estimates on 7,411 SF, to be confirmed by the buyer's architect and land-use counsel; the [Q] condition on the zoning still has to be read, and it may lower the base density the bonuses build on.</p>
+  <div class="path-grid">
+    <div class="path-card pa">
+      <div class="ph">
+        <div class="ptag">Pathway A &middot; Keep and Add</div>
+        <div class="pname">Duplex Plus Two ADUs</div>
+        <div class="punits">4 units, no demolition</div>
+      </div>
+      <div class="pb-body"><ul>
+        <li>State law allows two detached ADUs on a lot with an existing multifamily building, built behind the duplex in the yard.</li>
+        <li>The duplex stays, so no Ellis Act withdrawal; the RSO stays with the property. Because the lot is in the fault zone, the ADUs will likely need a fault study.</li>
+        <li>Buyers nearby are doing exactly this: 1912 S Barry, 1929 S Butler and 1726 S Granville all filed for two ADUs after their 2025 and 2026 purchases.</li>
+      </ul></div>
+      <div class="pmetric"><span class="l">Units</span><span class="v">2 + 2 ADUs</span></div>
+      <div class="pmetric"><span class="l">Approval</span><span class="v">By right</span></div>
+      <div class="pmetric"><span class="l">Buyer</span><span class="v">Investor / 1031</span></div>
+    </div>
+    <div class="path-card pb">
+      <div class="ph">
+        <div class="ptag">Pathway B &middot; By Right</div>
+        <div class="pname">R3 Apartment Building</div>
+        <div class="punits">About 6 to 9 units</div>
+      </div>
+      <div class="pb-body"><ul>
+        <li>R3 allows one unit per 800 SF of lot, or 9 units on 7,411 SF, before the [Q] condition is applied.</li>
+        <li>Built with 20% of the units for Lower Income households, the project qualifies for ministerial approval as a Housing Element site.</li>
+        <li>No parking is required within half a mile of a major transit stop (AB 2097).</li>
+      </ul></div>
+      <div class="pmetric"><span class="l">Units</span><span class="v">~6 to 9</span></div>
+      <div class="pmetric"><span class="l">Approval</span><span class="v">By right / ministerial</span></div>
+      <div class="pmetric"><span class="l">Buyer</span><span class="v">Small builder</span></div>
+    </div>
+    <div class="path-card pc">
+      <div class="ph">
+        <div class="ptag">Pathway C &middot; Mixed Income</div>
+        <div class="pname">MIIP Transit Area 2</div>
+        <div class="punits">About 25 to 35 units</div>
+      </div>
+      <div class="pb-body"><ul>
+        <li>The Mixed Income Incentive Program replaced TOC in 2025. In a Higher Opportunity Area, its Tier 2 transit incentives cap density by floor area instead of a unit count, as long as the base zoning allows at least five units.</li>
+        <li>Our estimate of 25 to 35 units depends on the floor area the program allows on R3 land; under the old TOC rules the same lot came to about 11 to 16.</li>
+        <li>A share of covenanted affordable units, with the rest market rate in a Highest Resource neighborhood.</li>
+      </ul></div>
+      <div class="pmetric"><span class="l">Units</span><span class="v">~25 to 35</span></div>
+      <div class="pmetric"><span class="l">Affordable</span><span class="v">Per MIIP set</span></div>
+      <div class="pmetric"><span class="l">Buyer</span><span class="v">Apartment builder</span></div>
+    </div>
+    <div class="path-card pd">
+      <div class="ph">
+        <div class="ptag">Pathway D &middot; Density Bonus</div>
+        <div class="pname">State Density Bonus</div>
+        <div class="punits">About 18 to 20 units</div>
+      </div>
+      <div class="pb-body"><ul>
+        <li>The state density bonus, stacked with the added bonus for more affordable units (AB 1287), roughly doubles base density.</li>
+        <li>For reference, the City's rezoning inventory assumes 19 units on this site.</li>
+        <li>Incentives and waivers for height and setbacks; no parking required.</li>
+      </ul></div>
+      <div class="pmetric"><span class="l">Units</span><span class="v">~18 to 20</span></div>
+      <div class="pmetric"><span class="l">Approval</span><span class="v">Ministerial / admin.</span></div>
+      <div class="pmetric"><span class="l">Buyer</span><span class="v">Mixed-income builder</span></div>
+    </div>
+    <div class="path-card pe">
+      <div class="ph">
+        <div class="ptag">Pathway E &middot; 100% Affordable</div>
+        <div class="pname">ED 1 / AHIP</div>
+        <div class="punits">About 38 to 42 units</div>
+      </div>
+      <div class="pb-body"><ul>
+        <li>The 1723 S Corinth model: 42 units, five stories, 100% affordable, on 7,359 SF of [Q]R3 land 0.46 miles away; permit issued May 2026.</li>
+        <li>TCAC/HCD Highest Resource, the area tax-credit and bond buyers look for.</li>
+        <li>The Corinth permit shows a site with RSO units can qualify; eligibility, any Ellis look-back and replacement units are confirmed case by case.</li>
+      </ul></div>
+      <div class="pmetric"><span class="l">Units</span><span class="v">~38 to 42</span></div>
+      <div class="pmetric"><span class="l">Approval</span><span class="v">Ministerial</span></div>
+      <div class="pmetric"><span class="l">Buyer</span><span class="v">Affordable developer</span></div>
+    </div>
+  </div>
+  <h3>Pathways Side by Side</h3>
+  <div class="table-scroll">
+  <table>
+    <tr><th>Pathway</th><th class="num">Units</th><th>Affordable Set-Aside</th><th>Existing Duplex</th><th>Approval</th></tr>
+    <tr><td>A &middot; Duplex plus two ADUs</td><td class="num">4</td><td>None</td><td>Kept</td><td>By right</td></tr>
+    <tr><td>B &middot; R3 apartment building</td><td class="num">~6 to 9</td><td>None, or 20% Lower Income for ministerial approval</td><td>Removed</td><td>By right or ministerial</td></tr>
+    <tr><td>C &middot; MIIP Transit Area 2</td><td class="num">~25 to 35</td><td>Per MIIP incentive set</td><td>Removed</td><td>Administrative</td></tr>
+    <tr><td>D &middot; State density bonus</td><td class="num">~18 to 20</td><td>Per bonus tier</td><td>Removed</td><td>Ministerial or administrative</td></tr>
+    <tr><td>E &middot; 100% affordable (ED 1 / AHIP)</td><td class="num">~38 to 42</td><td>100%</td><td>Removed</td><td>Ministerial</td></tr>
+    <tr><td>SB 684 / SB 1123 for-sale homes (modeled below)</td><td class="num">6 homes</td><td>None</td><td>Removed</td><td>Not available: RSO</td></tr>
+  </table>
+  </div>
+  <div class="info-callout"><strong>How to read these:</strong> Pathway A is the only route that keeps the duplex and its tenancies, and it suits an investor or a 1031 buyer. Pathways B through E all remove the duplex and are what a developer pays for: the more affordable units a buyer accepts, the more units the City allows. Pathway E has a working example on similar [Q]R3 zoning less than half a mile away. Pathway C's unit count turns on the floor area the City allows, which an architect should confirm first.</div>
+  <div class="info-callout"><strong>Diligence notes:</strong> Removing the duplex means an Ellis Act withdrawal of the two RSO units, relocation payments to any tenant, and replacement of the protected units with affordable units (ZIMAS flags Housing Element replacement as required). The lot is inside the Alquist-Priolo Earthquake Fault Zone for the Santa Monica Fault, so new construction needs a fault rupture investigation, and no building for human occupancy can sit across an active trace; where the trace lies will shape any plan. ZIMAS also shows a Methane Zone and a liquefaction area. New multifamily plans go through the Westwood Design Review Board. The [Q] condition on the zoning still has to be read in its ordinance. Not yet determined: whether SB 79 applies, and the site's eligibility under each program's own exclusions.</div>
+</section>
+
+<section class="card" id="sb1123">
+  <h2>SB 684 / SB 1123 Small-Lot Homes</h2>
+  <div class="hl-banner" style="background:linear-gradient(135deg,#7a3b2e,#a0523d)">
+    <div class="t">Not Available While the Duplex Stands</div>
+    <div class="h">Small-lot subdivisions cannot demolish or alter rent-stabilized units, and both units here are on the RSO</div>
+    <div class="s">LA City Planning's guidance for SB 684 and SB 1123 projects: they "cannot involve the demolition or alteration of housing units subject to ... the City's Rent Stabilization Ordinance (RSO), or that have been occupied by tenants within the past 5 years," and they cannot be on a parcel where an Ellis Act withdrawal has occurred within 15 years. Withdrawing the units under the Ellis Act does not open the door: it starts the 15-year bar.</div>
+  </div>
+  <p>SB 684 (2024) lets a builder on a multifamily-zoned lot like this one subdivide into as many as 10 small lots and sell each home separately, with ministerial approval, homes averaging no more than 1,750 SF, 4 ft side and rear setbacks and no more than one parking space per home; SB 1123 (2025) extended it to vacant single-family lots. Because it turns land into for-sale homes, it is often the highest-value use of a lot this size, so we modeled it in full with our SB 1123 underwriting tool, which covers both laws, to show what it would produce here and what the land would be worth to a home builder.</p>
+  <div class="img-frame" style="aspect-ratio:730/1082;max-width:520px;margin:0 auto;background:#fff;border:1px solid #e6e9ef"><img src="images/sb1123_site_plan.png" alt="Small-lot concept site plan, six homes entered from Massachusetts Ave"></div>
+  <div class="caption">Concept site plan from our SB 1123 tool, drawn to use the corner: six attached three-story homes of 1,499 SF, each on its own 1,235 SF lot (about 21.7 x 57 ft) with its front door and a one-car garage on Massachusetts Avenue. Because every home fronts a public street, the plan needs no common driveway, no backup aisle and no fire lane.</div>
+  <div class="stat-band">
+    <div class="stat"><div class="l">Homes</div><div class="v">6</div><div class="s">3 stories, 1,499 SF each</div></div>
+    <div class="stat"><div class="l">Each Lot</div><div class="v">1,235 SF</div><div class="s">1,200 SF minimum</div></div>
+    <div class="stat"><div class="l">Project Cost</div><div class="v">$6.79M</div><div class="s">At a $2.0M land price</div></div>
+    <div class="stat"><div class="l">Breakeven Exit</div><div class="v">~$805/SF</div><div class="s">Of living area</div></div>
+  </div>
+  <h3>What It Would Pencil To</h3>
+  <div class="table-scroll">
+  <table>
+    <tr><th>Exit Scenario</th><th class="num">Low</th><th class="num">Base</th><th class="num">High</th><th class="num">Best</th></tr>
+    <tr><td>Exit $/SF of living area</td><td class="num">$770</td><td class="num">$1,000</td><td class="num">$1,100</td><td class="num">$1,175</td></tr>
+    <tr><td>Price per home</td><td class="num">$1,154,230</td><td class="num">$1,499,000</td><td class="num">$1,648,900</td><td class="num">$1,761,325</td></tr>
+    <tr><td>Gross sellout, 6 homes</td><td class="num">$6,925,380</td><td class="num">$8,994,000</td><td class="num">$9,893,400</td><td class="num">$10,567,950</td></tr>
+    <tr><td>Profit at a $2,000,000 land price</td><td class="num">($295,270)</td><td class="num">$1,644,062</td><td class="num">$2,487,249</td><td class="num">$3,119,640</td></tr>
+    <tr><td>Margin on cost</td><td class="num">-4.3%</td><td class="num">24.2%</td><td class="num">36.6%</td><td class="num">46.0%</td></tr>
+    <tr class="avg"><td>Land value at a 15% builder margin</td><td class="num">$877,877</td><td class="num">$2,564,252</td><td class="num">$3,297,458</td><td class="num">$3,847,363</td></tr>
+  </table>
+  </div>
+  <p class="fn">Exits from LA County sale records, 2025 on: Low is a 2018 condo at 1553 Armacost Ave #202 ($770/SF, February 2025); Base is newer Westwood and West LA condos, 1644 Bentley Ave PH, 0.08 miles away ($1,007/SF, January 2025) and 1839 Pandora Ave C ($1,040/SF, December 2025); High and Best are new detached homes, 2126 Pelham Ave ($1,174/SF, May 2025) and 2255 Camden Ave ($1,182/SF, January 2025). Costs are concept-level: $350/SF all-in hard cost, $390,000 for entitlement, design and engineering, $589,499 in permits and fees, $45,000 for demolition and a 33-month schedule; not bids. Homes are designed at 1,499 SF to stay under the Linkage Fee threshold. A fault investigation and methane mitigation are not separately budgeted.</p>
+  <div class="tk-grid">
+    <div class="tk"><span class="n">1</span><br><b>What it would have been worth.</b> At the base exit, a home builder could pay about $2.56M for this land and still earn a 15% margin. Because the route is closed, that is a reference figure only; the price stands on the multifamily pathways.</div>
+    <div class="tk"><span class="n">2</span><br><b>Why it stays off the table.</b> Both units are registered under the RSO, and an Ellis Act withdrawal starts a 15-year bar. A home builder cannot use this route, and buyers will not pay for it.</div>
+    <div class="tk"><span class="n">3</span><br><b>Where the for-sale idea still fits.</b> A buyer who wants for-sale product can build condominiums through Pathway C or D and map them as a condo tract, which SB 684 does not govern.</div>
+  </div>
+</section>
+
+<section class="card" id="comps">
+  <h2>Land Sales Comparables</h2>
+  <p>Six closed redevelopment sites within about 1.5 miles, recorded from March 2025 to July 2026, plus two older sales that bear directly on this site. In each one the buyer pulled permits to demolish the existing building or to build new on the land. Sales where the buyer kept the building and only added ADUs behind it are shown separately below, because they were bought by a different buyer for a different plan.</p>
+  <div class="img-frame" style="aspect-ratio:1280/900;margin-bottom:14px;background:#fff"><img src="images/comp_map.png" alt="Map of the subject and the land sale comparables"></div>
+  <div class="caption" style="margin-top:-6px;margin-bottom:10px">S is the subject. A and B are on [Q]R3 zoning within half a mile. D and H on the map were reviewed and left out (see the note below the table).</div>
+  <div class="table-scroll">
+  <table>
+    <tr><th>#</th><th>Address</th><th>Zoning</th><th class="num">Lot SF</th><th class="num">Sale Price</th><th class="num">$/Land SF</th><th>Closed</th><th>Site and Plans</th><th class="num">Dist.</th></tr>
+    <tr><td>S</td><td class="addr"><b>1601 Camden Ave (subject)</b></td><td>[Q]R3</td><td class="num">7,411</td><td class="num">$2,000,000</td><td class="num"><span class="psf">$269.87</span></td><td>Proposed</td><td>1948 RSO duplex, corner lot</td><td class="num"></td></tr>
+    <tr><td>B</td><td class="addr">1723 S Corinth Ave</td><td>[Q]R3</td><td class="num">7,359</td><td class="num">$2,500,000</td><td class="num"><span class="psf hot">$339.72</span></td><td><span class="b-closed">Mar 2025</span></td><td>10-unit RSO building; demolition permit Dec 2025; 42-unit 100% affordable permit May 2026</td><td class="num">0.46 mi</td></tr>
+    <tr><td>C</td><td class="addr">2040 S Purdue Ave</td><td>R2</td><td class="num">6,986</td><td class="num">$1,700,000</td><td class="num"><span class="psf">$243.34</span></td><td><span class="b-closed">Oct 2025</span></td><td>House demolished; duplex plus 2-unit ADU building</td><td class="num">0.76 mi</td></tr>
+    <tr><td>E</td><td class="addr">1836 S Thayer Ave</td><td>R3</td><td class="num">6,753</td><td class="num">$1,825,000</td><td class="num"><span class="psf">$270.25</span></td><td><span class="b-closed">Jul 2026</span></td><td>House demolished; four new four-story homes and an ADU permitted Sep 2026</td><td class="num">1.11 mi</td></tr>
+    <tr><td>F</td><td class="addr">11729 W Tennessee Ave</td><td>R3</td><td class="num">4,985</td><td class="num">$1,300,000</td><td class="num"><span class="psf">$260.78</span></td><td><span class="b-closed">Oct 2025</span></td><td>House demolished; two new homes</td><td class="num">1.25 mi</td></tr>
+    <tr><td>G</td><td class="addr">11739 W Tennessee Ave</td><td>R3</td><td class="num">5,439</td><td class="num">$1,300,000</td><td class="num"><span class="psf">$239.01</span></td><td><span class="b-closed">Dec 2025</span></td><td>House demolished; two new homes</td><td class="num">1.26 mi</td></tr>
+    <tr><td>I</td><td class="addr">12222-12226 W Exposition Blvd (2 lots)</td><td>R3</td><td class="num">9,415</td><td class="num">$4,100,000</td><td class="num"><span class="psf hot">$435.48</span></td><td><span class="b-closed">May 2025</span></td><td>Two houses, $2,050,000 each on separate deeds; both demolished 2026. High outlier</td><td class="num">1.43 mi</td></tr>
+    <tr class="avg"><td></td><td>Median, 2025 on (six sales)</td><td></td><td class="num"></td><td class="num"></td><td class="num">$265.52</td><td></td><td></td><td></td></tr>
+    <tr><td>A</td><td class="addr">1521-1523 S Veteran Ave</td><td>[Q]R3</td><td class="num">8,501</td><td class="num">$2,570,000</td><td class="num"><span class="psf hot">$302.32</span></td><td><span class="b-closed">Oct 2024</span></td><td>RSO duplex; a 47-unit, six-story plan was on file from 2022 at the sale; duplex demolition permit Jan 2026</td><td class="num">0.15 mi</td></tr>
+    <tr><td></td><td class="addr">2245 S Amherst Ave</td><td>R3</td><td class="num">6,249</td><td class="num">$1,894,000</td><td class="num"><span class="psf hot">$303.09</span></td><td><span class="b-closed">Feb 2024</span></td><td>House demolished; 38-unit affordable building permitted Feb 2025</td><td class="num">1.45 mi</td></tr>
+  </table>
+  </div>
+  <p class="fn">Recorded prices and dates from LA County Assessor transfer records; lot sizes per the Assessor; zoning per ZIMAS and LADBS; plans per LADBS permits issued, plus the 2022 plan filing at 1521-1523 S Veteran, as of November 2026. $/SF is the recorded price over Assessor lot area. The six 2025-on sales: median $265.52, average $298.10; without the Exposition outlier, average $270.62. The two 2024 sales are shown for what they show (the closest same-zone RSO duplex, and a second 100% affordable site) and are left out of the median; the county's verification code on the Veteran deed is blank. Reviewed and left out: 1722 S Westgate (D on the map, a new home with an ADU but no demolition of a house on record) and 11814-11824 W Iowa (H, three lots at $1,167,000 each, where only garages were demolished).</p>
+  <h3>Keep-and-Add Sales: Buyers Who Kept the Building</h3>
+  <div class="table-scroll">
+  <table>
+    <tr><th>Address</th><th>Zoning</th><th class="num">Lot SF</th><th class="num">Units</th><th class="num">Sale Price</th><th class="num">$/Land SF</th><th>Closed</th><th>Plan</th><th class="num">Dist.</th></tr>
+    <tr><td>1726 S Granville Ave</td><td>[Q]R3</td><td class="num">5,900</td><td class="num">5</td><td class="num">$1,250,000</td><td class="num"><span class="psf">$211.86</span></td><td>Sep 2025</td><td>Detached ADUs filed</td><td class="num">0.94 mi</td></tr>
+    <tr><td>1929 S Butler Ave</td><td>R2</td><td class="num">6,614</td><td class="num">2</td><td class="num">$1,530,000</td><td class="num"><span class="psf">$231.33</span></td><td>Feb 2026</td><td>Two detached ADUs</td><td class="num">0.71 mi</td></tr>
+    <tr><td>1938 S Butler Ave</td><td>R2</td><td class="num">6,046</td><td class="num">1</td><td class="num">$1,525,000</td><td class="num"><span class="psf">$252.23</span></td><td>Feb 2025</td><td>2-unit ADU building</td><td class="num">0.71 mi</td></tr>
+    <tr><td>1912 S Barry Ave</td><td>R2</td><td class="num">9,072</td><td class="num">2</td><td class="num">$1,615,000</td><td class="num"><span class="psf">$178.02</span></td><td>Oct 2025</td><td>Two detached ADUs</td><td class="num">0.84 mi</td></tr>
+    <tr><td>1936 S Barrington Ave</td><td>R2</td><td class="num">6,048</td><td class="num">1</td><td class="num">$1,254,500</td><td class="num"><span class="psf">$207.42</span></td><td>Jun 2025</td><td>New home with ADU at the rear</td><td class="num">0.92 mi</td></tr>
+  </table>
+  </div>
+  <p class="fn">Same sources. Median $211.86 per land SF. These buyers paid for the building plus room for ADUs, which is the Pathway A buyer for this property.</p>
+  <h3>Active Land Listing Nearby</h3>
+  <div class="table-scroll">
+  <table>
+    <tr><th>Address</th><th class="num">Lot SF</th><th class="num">Asking</th><th class="num">$/Land SF</th><th>Notes</th><th class="num">Dist.</th></tr>
+    <tr><td>1656 Sawtelle Blvd <span class="b-laaa">LAAA Team Listing</span></td><td class="num">7,005</td><td class="num">$2,995,000</td><td class="num"><span class="psf hot">$427.55</span></td><td>Cleared, unentitled lot; about 38 units via MIIP, about 52 via AB 1287</td><td class="num">0.34 mi</td></tr>
+  </table>
+  </div>
+  <p class="fn">Asking price as advertised on www.laaa.com, November 9, 2026. A cleared lot with more density allowed is priced at a premium to a site that still carries rent-stabilized units.</p>
+</section>
+
+<section class="card" id="takeaways">
+  <h2>Key Takeaways</h2>
+  <div class="tk-grid">
+    <div class="tk"><span class="n">1</span><br><b>Redevelopment land here trades at $239 to $340 per SF.</b> The six 2025 and 2026 sales median $265.52 per land SF, with the two-lot Exposition sale at $435.48 as a high outlier. The two [Q]R3 sites within half a mile, both carrying rent-stabilized units, sold higher: $302.32 (1521-1523 S Veteran, 2024) and $339.72 (1723 S Corinth).</div>
+    <div class="tk"><span class="n">2</span><br><b>RSO buildings are selling as sites.</b> Corinth's buyer bought 10 rent-stabilized units, pulled a demolition permit and has a permit for 42 affordable units. Veteran sold with a 47-unit plan on file from 2022, and its duplex now has a demolition permit.</div>
+    <div class="tk"><span class="n">3</span><br><b>The upside is density.</b> At $2,000,000, a buyer pays about $57,000 to $80,000 per unit on a 25 to 35-unit MIIP building, about $105,000 on the 19 units the City's rezoning assumes, and about $50,000 per unit on a 40-unit affordable building.</div>
+    <div class="tk"><span class="n">4</span><br><b>The price needs a developer buyer.</b> Buyers who kept their buildings and added ADUs paid $178 to $252 per land SF (median $211.86). $2,000,000 is a land price, and it holds when the site is marketed to builders with answers on the second unit's occupancy, the fault trace and the [Q] condition in hand.</div>
+  </div>
+</section>
+
+<section class="card" id="pricing">
+  <h2>Pricing Recommendation</h2>
+  <div class="recommend">
+    <div class="r-eyebrow">Recommended Price</div>
+    <div class="r-band">$2,000,000</div>
+    <div class="r-sub">$269.87 per land SF on 7,411 SF</div>
+  </div>
+  <div class="price-compare">
+    <div class="pc-box"><div class="l">Per Land SF</div><div class="v">$269.87</div><div class="s">2025-on median $265.52</div></div>
+    <div class="pc-box"><div class="l">Per Unit, MIIP Transit</div><div class="v">~$57,000 to $80,000</div><div class="s">On ~25 to 35 units</div></div>
+    <div class="pc-box"><div class="l">Per Unit, 100% Affordable</div><div class="v">~$50,000</div><div class="s">On ~40 units; 1723 S Corinth $59,524</div></div>
+    <div class="pc-box"><div class="l">Same-Zone RSO Sales</div><div class="v">$302 to $340</div><div class="s">Per land SF, within half a mile</div></div>
+  </div>
+  <p>At $2,000,000 the lot is priced at $269.87 per land SF, right at the median of the six redevelopment sites that sold nearby in 2025 and 2026 ($265.52) and below the two [Q]R3 sites within half a mile, 1521-1523 S Veteran at $302.32 and 1723 S Corinth at $339.72. Both of those carried rent-stabilized units, as this one does, and both had a larger plan on file when they sold; this lot brings a corner location, the City's transit incentives and a Highest Resource address.</p>
+  <p>The per-unit price on the multifamily pathways supports the same number, and our small-lot home model, though that route is closed here, would support a higher land value at a base exit. Buyers who would keep the duplex have paid less, so the property should be marketed to developers. The sale is well below the City's Measure ULA threshold of $5,400,000, so no ULA tax applies.</p>
+</section>
+
+<section class="card" id="marketing">
+  <h2>Marketing Reach</h2>
+  <p>Every LAAA Team exclusive listing is syndicated across 10 listing platforms, backed by direct outreach to our database of multifamily developers, affordable housing sponsors, tax-credit developers, small-lot home builders and 1031 investors.</p>
+  <div class="plat-strip">
+    <span class="plat">The MLS</span>
+    <span class="plat">CoStar / LoopNet</span>
+    <span class="plat">Crexi</span>
+    <span class="plat">Brevitas</span>
+    <span class="plat">Zillow</span>
+    <span class="plat">Redfin</span>
+    <span class="plat">ApartmentBuildings.com</span>
+    <span class="plat">Duxre</span>
+    <span class="plat">MarcusMillichap.com</span>
+    <span class="plat">www.laaa.com</span>
+  </div>
+</section>
+
+<section class="card" id="listings">
+  <h2>Also Marketed by the LAAA Team</h2>
+  <p>The LAAA Team is currently marketing 7 land and development-site listings across Southern California, including 1656 Sawtelle Blvd, about a third of a mile from this site. Each card links to the full offering at www.laaa.com.</p>
+  <div class="inv-grid">
+    <a class="inv-item" href="https://www.laaa.com/om/5151-e-arrow" target="_blank" rel="noopener"><span class="addr">5151 E Arrow Hwy</span><span class="city">Montclair</span><span class="price">$10,250,000</span><span class="facts">300 buildable units &middot; 260,271 SF (5.97 ac)</span><span class="desc">Unentitled 300-unit mixed-density apartment and townhome site in the North Montclair Downtown Specific Plan.</span><span class="go">View Listing</span></a>
+    <a class="inv-item" href="https://www.laaa.com/om/185-monterey" target="_blank" rel="noopener"><span class="addr">185 Monterey Rd</span><span class="city">South Pasadena</span><span class="price">$7,000,000</span><span class="facts">53 entitled units &middot; 54,794 SF (1.26 ac)</span><span class="desc">Fully entitled 53-unit condominium development, tract map approved June 2026.</span><span class="go">View Listing</span></a>
+    <a class="inv-item" href="https://www.laaa.com/om/2600-s-robertson" target="_blank" rel="noopener"><span class="addr">2600 S Robertson Blvd</span><span class="city">Los Angeles</span><span class="price">$6,995,000</span><span class="facts">149 entitled units &middot; 16,220 SF</span><span class="desc">ED1 100% affordable mixed-use approval, 149 units over ground-floor retail at a 3.9:1 FAR.</span><span class="go">View Listing</span></a>
+    <a class="inv-item" href="https://www.laaa.com/om/13840-sherman" target="_blank" rel="noopener"><span class="addr">13840 Sherman Way</span><span class="city">Van Nuys</span><span class="price">$3,500,000</span><span class="facts">86 RTI units &middot; 1.05 acres</span><span class="desc">AB 2334 density bonus affordable site delivered Ready-to-Issue at close of escrow, no parking required.</span><span class="go">View Listing</span></a>
+    <a class="inv-item" href="https://www.laaa.com/om/1656-sawtelle" target="_blank" rel="noopener"><span class="addr">1656 Sawtelle Blvd</span><span class="city">Los Angeles</span><span class="price">$2,995,000</span><span class="facts">38 buildable units, up to ~52 with bonus &middot; 7,005 SF</span><span class="desc">Cleared, unentitled West LA (Little Osaka) apartment site, ~38 units via MIIP, ~52 via AB 1287/AHIP.</span><span class="go">View Listing</span></a>
+    <a class="inv-item" href="https://www.laaa.com/om/631-637-w-6th" target="_blank" rel="noopener"><span class="addr">631-637 W 6th Street</span><span class="city">San Pedro</span><span class="price">$1,475,000</span><span class="facts">10 buildable units &middot; 13,799 SF</span><span class="desc">Two-parcel by-right site: SB 1123 for-sale subdivision or duplexes plus ADUs.</span><span class="go">View Listing</span></a>
+    <a class="inv-item" href="https://www.laaa.com/om/6901-woodman" target="_blank" rel="noopener"><span class="addr">6901 Woodman Avenue</span><span class="city">Van Nuys</span><span class="price">$1,300,000</span><span class="facts">55 RTI units &middot; 10,005 SF</span><span class="desc">RTI 55-unit ED1/TOC affordable land, permits ready to pull.</span><span class="go">View Listing</span></a>
+  </div>
+  <p class="fn">Active laaa.com land listings as verified November 9, 2026, excluding properties in escrow.</p>
+</section>
+
+<section class="card" id="team">
+  <h2>The LAAA Team</h2>
+  <div class="team-leaders">
+    <div class="leader">
+      <img class="headshot-img-lg" src="images/headshot_filip-niculete.jpg" alt="Filip Niculete">
+      <div class="nm">Filip Niculete</div>
+      <div class="tt">Senior Managing Director Investments</div>
+      <div class="ct">(818) 212-2748 &middot; CA DRE 01905352</div>
+    </div>
+    <div class="leader">
+      <img class="headshot-img-lg" src="images/headshot_glen-scher.jpg" alt="Glen Scher">
+      <div class="nm">Glen Scher</div>
+      <div class="tt">Senior Managing Director Investments</div>
+      <div class="ct">(818) 212-2808 &middot; CA DRE 01962976</div>
+    </div>
+  </div>
+  <div class="team-roster">
+    <div class="roster-card"><img class="headshot-img-lg" src="images/roster_aida-memary-scher.jpg" alt="Aida Memary Scher"><div class="nm">Aida Memary Scher</div><div class="tt">Associate Director Investments</div></div>
+    <div class="roster-card"><img class="headshot-img-lg" src="images/roster_morgan-wetmore.jpg" alt="Morgan Wetmore"><div class="nm">Morgan Wetmore</div><div class="tt">Associate Investments</div></div>
+    <div class="roster-card"><img class="headshot-img-lg" src="images/roster_alexandro-tapia.jpg" alt="Alexandro Tapia"><div class="nm">Alexandro Tapia</div><div class="tt">Associate Investments</div></div>
+    <div class="roster-card"><img class="headshot-img-lg" src="images/roster_logan-ward.jpg" alt="Logan Ward"><div class="nm">Logan Ward</div><div class="tt">Associate Investments</div></div>
+    <div class="roster-card"><img class="headshot-img-lg" src="images/roster_luka-leader.jpg" alt="Luka Leader"><div class="nm">Luka Leader</div><div class="tt">Associate Investments</div></div>
+    <div class="roster-card"><img class="headshot-img-lg" src="images/roster_blake-lewitt.jpg" alt="Blake Lewitt"><div class="nm">Blake Lewitt</div><div class="tt">Associate Investments</div></div>
+    <div class="roster-card"><img class="headshot-img-lg" src="images/roster_mike-palade.jpg" alt="Mike Palade"><div class="nm">Mike Palade</div><div class="tt">Agent Assistant</div></div>
+    <div class="roster-card"><img class="headshot-img-lg" src="images/roster_tony-dang.jpg" alt="Tony H. Dang"><div class="nm">Tony H. Dang</div><div class="tt">Business Operations Manager</div></div>
+    <div class="roster-card"><img class="headshot-img-lg" src="images/roster_tirajeh-vossoughi-horton.jpg" alt="Tirajeh Vossoughi-Horton"><div class="nm">Tirajeh Vossoughi-Horton</div><div class="tt">Investment Brokerage Intern</div></div>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-title">Marcus &amp; Millichap | The LAAA Team</div>
+    <p>16830 Ventura Blvd, Suite 100, Encino, CA 91436 &middot; www.laaa.com</p>
+    <p>This Broker Opinion of Value is not an appraisal and has been prepared for the exclusive use of the party to whom it is addressed. The information contained herein was obtained from sources we believe to be reliable; however, Marcus &amp; Millichap makes no guarantee, warranty, or representation as to its accuracy or completeness. Development potential, unit counts, and program eligibility are planning-level estimates only and must be independently verified with the City of Los Angeles, an architect, and land-use counsel. Aerial imagery: Esri, Maxar, Earthstar Geographics. Basemap: Esri, HERE, Garmin, OpenStreetMap contributors. The SB 1123 site plan and feasibility are concept-level studies, not plans for construction or bids.</p>
+  </div>
+</footer>
+
+</body>
+</html>
